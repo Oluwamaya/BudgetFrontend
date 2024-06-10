@@ -7,9 +7,10 @@ import { DisplaybudgetComponent } from './files/displaybudget/displaybudget.comp
 export const routes: Routes = [
 
     {path: "" , pathMatch: "full", redirectTo: "Home"},
+    // {path: "**" ,redirectTo:"Home" },
     {path: "Home", component: HomeComponent },
     {path: "create", component: CreateComponent },
     {path: "view", component: ViewComponent},
-    {path: "view/display/:id", component: DisplaybudgetComponent}
+    {path: "display/:id", component: DisplaybudgetComponent}
 
 ];

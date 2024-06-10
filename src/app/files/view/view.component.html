@@ -13,7 +13,7 @@
             </div>
         <main *ngIf="gab.length > 0" class="col-10 bg-white shadow shadow-lg d-flex justify-content-around p-2 flex-wrap align-items-center">
             <div *ngFor="let el of gab" class="d-flex justify-content-between flex-wrap align-items-center ">
-                <a clss="btn btn-primary"routerLink="display/{{el._id}}">{{formatDate(el.dateCreated)}}</a>
+                <a clss="btn btn-primary" routerLink="/display/{{el._id}}">{{formatDate(el.dateCreated)}}</a>
                 
             </div>
         </main>
