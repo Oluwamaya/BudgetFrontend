@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Document</title>
 </head>
 <body>
-    <section class="mx-auto border shadow shadow-lg p-2 border-1 border-success col-1- col-md-8  ">
+    <section class="mx-auto border shadow shadow-lg p-2 border-1 border-success col-1- col-md-12  ">
         <main class="d-flex justify-content-between align-items-center">
             <div>
                 <p class="fw-bold">Budget AMT: <span class="fw-light">#{{budgetInfo.budgetPrice}}</span></p>
-                <p class="fw-bold">Remaining AMT: <span></span></p>
-                <p class="fw-bold">AMT SPENT: <span></span></p>
+                <p class="fw-bold">Amt SPENT: <span class="fw-light">#{{totalSpent}}</span></p>
+                <p class="fw-bold">Remaining AMT: <span class="fw-light">#{{remainingAmount}}</span></p>
             </div>
             <div>
               <p class="fw-bold">Item Purchased: <span>{{ purchasedItemCount }}</span></p>
               <p class="fw-bold">Item Remaining: <span>{{ unpurchasedItemCount }}</span></p>
             </div>
         </main> 
-        <main class="d-block d-md-flex  justify-content-between align-items-start p-4 bg-light">
-            <div class="w-75 me-4 p-3 bg-white shadow-sm rounded mb-3 bg-dark">
+        <main class="container-fluid d-block d-md-flex  justify-content-between align-items-start p-4 bg-light">
+            <div class="col-12 col-md-4 me-4 p-3 bg-white shadow-sm rounded mb-3 bg-dark">
               <h6 class="mb-4 text-center text-success">Create Item List</h6>
               <form [formGroup]="itemForm" (ngSubmit)="addCart()" class="mb-4">
                 <div class="mb-3">
-                  <label for="name" class="form-la[bel">Item] Name</label>
-                  <input type="text" id="name" class="form-control" formControlName="name">
+                  <label for="name" class="form-la[bel">Item Name</label>
+                  <input type="text" id="name" class="form-control" formControlName="itemName">
                   <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-danger">
                     Item Name is required and must be at least 3 characters long.
                   </div>
@@ -39,7 +40,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="price" class="form-label">Item Price</label>
-                  <input type="text" id="price" class="form-control" formControlName="price">
+                  <input type="text" id="price" class="form-control" formControlName="itemPrice">
                   <div *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.touched" class="text-danger">
                     Item Price is required and must be a valid number with up to 2 decimal places.
                   </div>
@@ -67,22 +68,42 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="" *ngFor="let el of fetchItemList; let id = index">
-                      <td>{{id + 1}}</td>
-                      <td>{{el.itemName}}</td>
-                      <td><button class="btn btn-outline-success">View</button></td>
-                      <td><button class="btn btn-outline-dark">Edit</button></td>
-                      <td><button class="btn btn-outline-danger">Delete</button></td>
+                    <tr *ngIf="fetchItemList.length === 0">
+                      <td colspan="6" class="text-center">
+                        <p>Your shopping cart is currently empty. Start adding items to see them here. 🛒</p>
+                      </td>
+                    </tr>
+                    <tr class="text-center" *ngFor="let el of fetchItemList; let id = index">
+                      <td>{{ id + 1 }}</td>
+                      <td>{{ el.itemName }}</td>
                       <td>
-                        <div class="d-flex justify-content-center align-items-center">
-                          <input id="check{{id}}" type="checkbox" [checked]="el.checked" (change)="togglePurchased(el)" class="mr-2">
-                          <label for="check{{id}}" class="mb-0">
-                            <p class="mb-0">{{ el.purchase ? 'Purchased' : 'Not Purchased' }}</p>
+                        <button class="btn btn-outline-success"  (click)="viewItem(el._id)">
+                          <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                      </td>
+                      <td>
+                        <button class="btn btn-outline-dark" (click)="editExistingItem(el)">
+                          <span class="material-symbols-outlined">edit</span>
+                        </button>
+                      </td>
+                      <td>
+                        <button class="btn btn-outline-danger" (click)="deleteItem(el._id)">
+                          <span class="material-symbols-outlined">delete_forever</span>
+                        </button>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <input id="check{{ id }}" type="checkbox" [checked]="el.purchase" (change)="togglePurchased(el)" class="mr-2">
+                          <label for="check{{ id }}" class="mb-0">
+                            <p *ngIf="!el.purchase">Not Purchased</p>
+                            <p *ngIf="el.purchase">Purchased</p>
                           </label>
                         </div>
                       </td>
                     </tr>
                   </tbody>
+                  
+                  
                 </table>
               </div>
               

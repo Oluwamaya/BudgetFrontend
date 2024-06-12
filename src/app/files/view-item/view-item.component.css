@@ -1,0 +1,33 @@
+.flo{
+    font-size: 50px !important;
+    width: 50px;
+    height: 50px;
+}
+
+main {
+    margin-top: 20px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    margin-left: 5px;
+}
+
+/* Style for the checkbox */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.custom-icon {
+    font-size: 48px !important; 
+    line-height: 1.5; /* Adjust line height if necessary */
+    /* Optional: Set a specific width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

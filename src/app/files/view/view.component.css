@@ -1,0 +1,11 @@
+.bj{
+    border: 2px solid gray;
+    background-color: black;
+    border-radius: 10px;
+
+    padding: 6px 8px;
+    margin-left: 30px;
+}
+body{
+    height: 45vh !important;
+}

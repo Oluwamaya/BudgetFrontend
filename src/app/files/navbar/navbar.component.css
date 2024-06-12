@@ -1,0 +1,65 @@
+/* styles.css */
+.nav-item a {
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav{
+    background-color: #e9f6e9 !important;
+}
+
+.nav-item a:hover {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+}
+/* styles.css or the specific component's CSS file */
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #e9f6e9; /* Matching bg-success-subtle */
+    color: #343a40; /* Dark text color */
+}
+
+footer a {
+    color: #343a40;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #28a745;
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer .list-unstyled {
+    padding-left: 0;
+}
+
+footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}

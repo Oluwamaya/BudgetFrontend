@@ -56,12 +56,15 @@ export class CreateComponent {
       const value = {
           date : this.budgetForm.get('date')?.value ,
           budget : this.budgetForm.get('budget')?.value ,
-          userId : this.userId
+          userId : this.userId,
+          
       }
       this.http.post<any>('http://localhost:4444/budget', {value}).subscribe(
         response => {
           console.log('Response from backend:', response);
           const createdBudget = response.budgetInfo
+          
+          
           localStorage.setItem("budgetInfo", JSON.stringify(createdBudget))
           this.router.navigate(["/view"])
           
