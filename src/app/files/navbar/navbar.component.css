@@ -63,3 +63,8 @@ footer .list-unstyled {
 footer .list-unstyled li {
     margin-bottom: 0.5rem;
 }
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}

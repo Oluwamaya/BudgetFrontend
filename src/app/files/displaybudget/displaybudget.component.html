@@ -10,14 +10,15 @@
 <body>
     <section class="mx-auto border shadow shadow-lg p-2 border-1 border-success col-1- col-md-12  ">
         <main class="d-flex justify-content-between align-items-center">
-            <div>
-                <p class="fw-bold">Budget AMT: <span class="fw-light">#{{budgetInfo.budgetPrice}}</span></p>
-                <p class="fw-bold">Amt SPENT: <span class="fw-light">#{{totalSpent}}</span></p>
-                <p class="fw-bold">Remaining AMT: <span class="fw-light">#{{remainingAmount}}</span></p>
+            <div class="bg-light-subtle shadow shadow-lg rounded rounded-2  p-2">
+                <p class="fw-bold">Budget INFO : <span class="fw-light">{{budgetInfo.budgetName || budgetInfo.dateCreated}}</span></p>
+                <p class="fw-bold">Budget AMT : <span class="fw-light">#{{budgetInfo.budgetPrice}}</span></p>
+                <p class="fw-bold">Amt SPENT : <span class="fw-light">#{{totalSpent}}</span></p>
+                <p class="fw-bold">Remaining AMT : <span class="fw-light">#{{remainingAmount}}</span></p>
             </div>
-            <div>
-              <p class="fw-bold">Item Purchased: <span>{{ purchasedItemCount }}</span></p>
-              <p class="fw-bold">Item Remaining: <span>{{ unpurchasedItemCount }}</span></p>
+            <div class="bg-light-subtle shadow shadow-lg rounded rounded-2  p-2" >
+              <p class="fw-bold">Item Purchased : <span>{{ purchasedItemCount }}</span></p>
+              <p class="fw-bold">Item Remaining : <span>{{ unpurchasedItemCount }}</span></p>
             </div>
         </main> 
         <main class="container-fluid d-block d-md-flex  justify-content-between align-items-start p-4 bg-light">
@@ -27,7 +28,7 @@
                 <div class="mb-3">
                   <label for="name" class="form-la[bel">Item Name</label>
                   <input type="text" id="name" class="form-control" formControlName="itemName">
-                  <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-danger">
+                  <div *ngIf="itemForm.get('itemName')?.invalid && itemForm.get('itemName')?.touched" class="text-danger">
                     Item Name is required and must be at least 3 characters long.
                   </div>
                 </div>
@@ -41,13 +42,22 @@
                 <div class="mb-3">
                   <label for="price" class="form-label">Item Price</label>
                   <input type="text" id="price" class="form-control" formControlName="itemPrice">
-                  <div *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.touched" class="text-danger">
-                    Item Price is required and must be a valid number with up to 2 decimal places.
+                  <div *ngIf="itemForm.get('itemPrice')?.errors && itemForm.get('itemPrice')?.touched" class="text-danger">
+                    <div *ngIf="itemForm.controls['itemPrice'].errors && itemForm.controls['itemPrice'].errors['required']">
+                      Item Price is required.
                   </div>
+                  <div *ngIf="itemForm.controls['itemPrice'].errors && itemForm.controls['itemPrice'].errors['pattern']">
+                      Item Price must be a valid number with up to two digits.
+                  </div>
+                  
+                  </div>
+                  
                 </div>
                 <input type="hidden" formControlName="userId">
                 <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-success">Add to Cart</button>
+                  <button type="submit" class="btn btn-success">
+                    {{ editMode ? 'Edit Item' : 'Add to Cart' }}
+                </button>
                 </div>
               </form>
               
@@ -58,7 +68,7 @@
               <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                   <thead class="thead-dark">
-                    <tr class="text-center">
+                    <tr class="text-center bg-success-subtle">
                       <th>#</th>
                       <th>Item Name</th>
                       <th>View</th>

@@ -8,9 +8,6 @@ main {
     margin-top: 20px;
 }
 
-div {
-    margin-bottom: 10px;
-}
 
 label {
     margin-left: 5px;
@@ -30,4 +27,16 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  body{
+    height: fit-content !important;
+    /* overflow: scroll; */
+    background: linear-gradient(rgb(0,0,0,0.5) ,rgb(0,0,0,0.5), rgb(0,0,0,0.5) ) ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-image: url('https://avatars.mds.yandex.net/i?id=36b046e205e560ae9f93ab639a5534fc571d6604-5234139-images-thumbs&n=13'); */
+    background-image: url("https://images.unsplash.com/photo-1717851425482-bdb309381a84?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMXx8fGVufDB8fHx8fA%3D%3D");
+    font-family: Arial, sans-serif;
   }

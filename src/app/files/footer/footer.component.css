@@ -4,3 +4,46 @@
     bottom: 0 !important;
     left: 0 !important;
 } */
+a{
+    text-decoration: none !important;
+}
+body {
+    font-family: Arial, sans-serif;
+  }
+  footer {
+    background-color: #e9f7ef;
+    color: #333;
+    padding: 40px 0;
+  }
+  footer h5 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  footer p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  footer a {
+    color: #28a745;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  footer a:hover {
+    color: #155724;
+  }
+  footer .contact-icons a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  footer .contact-icons a:hover {
+    color: #155724;
+  }
+  footer .list-unstyled li {
+    margin-bottom: 0.75rem;
+  }
+  footer .text-dark:hover {
+    color: #155724 !important;
+  }
+  footer .border-dark {
+    background-color: #fff;
+  }

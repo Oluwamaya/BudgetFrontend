@@ -6,8 +6,11 @@ import { Router, RouterModule } from '@angular/router';
 
 function futureDateValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-    const selectedDate = new Date(control.value);
+    const selectedDate = new Date(control.value + 'T00:00:00');
     const currentDate = new Date();
+    
+    // Set the time to midnight for both dates to only compare the date parts
+    selectedDate.setHours(0, 0, 0, 0);
     currentDate.setHours(0, 0, 0, 0);
     if (selectedDate < currentDate) {
       return { 'pastDate': true };
@@ -29,6 +32,7 @@ export class CreateComponent {
  
   constructor(private fb: FormBuilder, private http: HttpClient, private router : Router) {
     this.budgetForm = this.fb.group({
+      name:['' , [Validators.required,]],
       date: ['', [Validators.required, futureDateValidator()]], // Add Validators as needed
       budget: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
@@ -56,6 +60,7 @@ export class CreateComponent {
       const value = {
           date : this.budgetForm.get('date')?.value ,
           budget : this.budgetForm.get('budget')?.value ,
+          name: this.budgetForm.get('name')?.value,
           userId : this.userId,
           
       }

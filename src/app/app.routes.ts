@@ -10,7 +10,7 @@ import { FooterComponent } from './files/footer/footer.component';
 export const routes: Routes = [
 
     {path: "" , pathMatch: "full", redirectTo: "Home"},
-    // {path: "**" ,redirectTo:"Home" },
+    {path: "*" ,redirectTo:"Home" },
     {path: "navbar", component:NavbarComponent},
     {path: "Home", component: HomeComponent },
     {path: "create", component: CreateComponent },
@@ -18,7 +18,7 @@ export const routes: Routes = [
     {path: "display/:id", component: DisplaybudgetComponent},
     {path : "viewItem/:id" , component: ViewItemComponent},
      {path: "footer",component:FooterComponent},
-     
+
 
 
 ];

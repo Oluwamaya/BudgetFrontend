@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Document</title>
 </head>
-<body class="mx-auto d-flex justify-content-center align-items-center">
-    <section class="card">
-    <main class="mt-5 d-flex justify-content-around align-items-center col-8 col-md-8 " >
+<body class="mx-auto text-center">
+    <section class="card bg-transparent  d-flex justify-content-center align-items-center my-2">
+        <main class="mt-5 bg-white shadow rounded shadow-lg col-10 col-md-4  py-2" >
+        <h5>Budget Infomation </h5>
+        <div class="d-flex justify-content-around align-items-center ">
         <div class="text-success ">
             <p class="flo fs-2"><span class="material-symbols-outlined custom-icon">
                 shopping_cart
@@ -17,23 +19,71 @@
         </div>
         <div *ngIf="itemView" class="">
             <div class="card-body">
-                <p class="card-text"><strong>Name:-</strong> <span> {{ itemView.itemName }}</span></p>
-                <p class="card-text"><strong>Price:-</strong> <span> {{ itemView.itemPrice }}</span></p>
-                <p class="card-text"><strong>Quantity:-</strong> <span> {{ itemView.quantity }}</span></p>
+                <p class="card-text"><strong>Name :-</strong> <span> {{ itemView.itemName }}</span></p>
+                <p class="card-text"><strong>Price :-</strong> <span> {{ itemView.itemPrice }}</span></p>
+                <p class="card-text"><strong>Quantity :-</strong> <span> {{ itemView.quantity }}</span></p>
+                <p class="card-text"><strong> T.Price =</strong> <span> {{itemView.itemPrice * itemView.quantity}}</span></p>
     
                 <div class="form-check d-flex align-items-center justify-content-lg-between fw-bold">
                     <input class="form-check-input fw-bold" type="checkbox" id="purchaseCheckbox" [checked]="itemView.purchase" disabled>
                     <label class="form-check-label fw-bold" for="purchaseCheckbox">{{ itemView.purchase ? 'Purchased' : 'Not Purchased' }}</label>
                 </div>
-                <p class="card-text"><strong>T.Price:-</strong> <span> {{itemView.itemPrice * itemView.quantity}}</span></p>
             </div>
         </div>
-        
-    </main>
-    <div class="text-center">
-        <button routerLink="/display/{{itemView.budgetId}}"   class="btn btn-outline-success">All Item</button>
     </div>
+    </main>
+    <div class="text-center mt-3">
+        <p class=" mb-4">To view all items related to this budget, click the button below:</p>
+        <button routerLink="/display/{{itemView.budgetId}}" class="btn btn-outline-success">View All Items</button>
+    </div>
+    
 </section>
+<section class="mt-5">
+    <div class=" border-bottom border-bottom-5 ">
+      <h2 class="text-success">Why Choose BudgetEase?</h2>
+    <p>With BudgetEase, you can easily manage your finances, track your expenses, and achieve your financial goals. Our innovative tools and user-friendly interface make budgeting a breeze.</p>
+    </div>
+      <div class="row mt-4">
+          <div class="col-md-4">
+              <i class="bi bi-check-circle-fill fs-1 text-success"></i>
+              <h3>Easy to Use</h3>
+              <p>Our intuitive design makes it simple to manage your budget.</p>
+          </div>
+          <div class="col-md-4">
+              <i class="bi bi-pie-chart-fill fs-1 text-success"></i>
+              <h3>Comprehensive Reports</h3>
+              <p>Get detailed insights into your spending and saving habits.</p>
+          </div>
+          <div class="col-md-4">
+              <i class="bi bi-shield-lock-fill fs-1 text-success"></i>
+              <h3>Secure</h3>
+              <p>We prioritize your privacy and data security.</p>
+          </div>
+      </div>
+  </section>
+  <section class="mt-2 mx-3">
+      <h2 class="text-success">User Testimonials</h2>
+      <div class="row d-flex justify-content-center align-content-center bg-transparent">
+          <div class="col-md-12 border border-2 rounded rounded-2 border-success shadow shadow-lg m-2 bg-light">
+              <blockquote class="blockquote">
+                  <p class="mb-0">"BudgetEase has transformed the way I manage my finances. It's so easy to use!"</p>
+                  <footer class="blockquote-footer my-2">Jane Doe, <cite title="Source Title">Happy User</cite></footer>
+              </blockquote>
+          </div>
+          <div class="col-md-12 border border-2 rounded rounded-2 border-success shadow shadow-lg m-2 bg-light">
+              <blockquote class="blockquote">
+                  <p class="mb-0">"Thanks to BudgetEase, I've finally achieved my financial goals."</p>
+                  <footer class="blockquote-footer my-2">John Smith, <cite title="Source Title">Satisfied Customer</cite></footer>
+              </blockquote>
+          </div>
+          <div class="col-md-12 border border-2 rounded rounded-2 border-success shadow shadow-lg m-2 bg-light">
+              <blockquote class="blockquote">
+                  <p class="mb-0">"The best budgeting app I've ever used. Highly recommend!"</p>
+                  <footer class="blockquote-footer my-2">Emily Johnson, <cite title="Source Title">Regular User</cite></footer>
+              </blockquote>
+          </div>
+      </div>
+  </section>
     
 </body>
 </html>

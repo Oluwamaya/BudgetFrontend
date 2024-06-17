@@ -31,7 +31,7 @@ export class DisplaybudgetComponent implements OnInit {
   public fetchItemList: Item[] = [];
   public purchasedItemCount: number = 0;
   public unpurchasedItemCount: number = 0;
-  private editMode: boolean = false;
+  public editMode: boolean = false;
   private editItemId: string = '';
   public totalSpent: number = 0;
   public remainingAmount: number = 0;
@@ -46,7 +46,7 @@ export class DisplaybudgetComponent implements OnInit {
     this.itemForm = this.fb.group({
       itemName: ['', [Validators.required, Validators.minLength(3)]],
       quantity: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      itemPrice: ['', [Validators.required, Validators.pattern('^[0-9]+(\\.[0-9]{1,2})?$')]],
+      itemPrice: ['', [Validators.required, Validators.pattern('^[0-9]{2,}$'), Validators.pattern('^[0-9]*$')]],
       userId: ['', Validators.required]
     });
   }
@@ -85,6 +85,7 @@ export class DisplaybudgetComponent implements OnInit {
   }
 
   addCart() {
+    this.itemForm.markAllAsTouched();
     console.log(this.itemForm.value);
     if (this.itemForm.valid) {
       const formData = { ...this.itemForm.value, budgetId: this.id };
