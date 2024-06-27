@@ -9,6 +9,9 @@ body{
   background-image: url("https://images.unsplash.com/photo-1717851425482-bdb309381a84?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMXx8fGVufDB8fHx8fA%3D%3D");
   font-family: Arial, sans-serif;
 }
+.goal{
+  margin-top: 80px;
+}
   main {
     margin: 20px auto;
     max-width: 1200px;
@@ -120,5 +123,5 @@ body{
     background-color: #e9f7ef !important;
   }
   .kol{
-    height: 170px;
+    /* height: 170px; */
   }
