@@ -23,7 +23,7 @@ export class ViewItemComponent {
     
     this.itemId = this.actRoute.snapshot.params['id']
     console.log(this.itemId);
-    this.http.get<any>(`http://localhost:4444/viewItem/${this.itemId}`).subscribe((res)=>{
+    this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewItem/${this.itemId}`).subscribe((res)=>{
       console.log(res);
       this.itemView = res.fetchInfo
       

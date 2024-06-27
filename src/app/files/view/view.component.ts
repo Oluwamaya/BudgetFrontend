@@ -21,7 +21,7 @@ export class ViewComponent {constructor(private http : HttpClient , private date
       const id = this.getAllBudget
       console.log();
       
-      this.http.get<any>(`http://localhost:4444/ViewBudget/${id}`).subscribe((res)=>{
+      this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/ViewBudget/${id}`).subscribe((res)=>{
         console.log(res);
         this.gab = res.allBudgets
         console.log(this.gab);
@@ -49,7 +49,7 @@ export class ViewComponent {constructor(private http : HttpClient , private date
     console.log(id);
     
     if (confirm('Are you sure you want to delete this budget?')) {
-      this.http.delete<any>(`http://localhost:4444/deleteBudget/${id}`).subscribe(
+      this.http.delete<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/deleteBudget/${id}`).subscribe(
         response => {
           console.log('Budget deleted successfully:', response);
           this.gab = response.remainBudget;

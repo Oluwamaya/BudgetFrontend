@@ -64,7 +64,7 @@ export class CreateComponent {
           userId : this.userId,
           
       }
-      this.http.post<any>('http://localhost:4444/budget', {value}).subscribe(
+      this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/budget', {value}).subscribe(
         response => {
           console.log('Response from backend:', response);
           const createdBudget = response.budgetInfo

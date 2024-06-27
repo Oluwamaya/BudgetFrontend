@@ -53,14 +53,21 @@ body{
     padding: 50px 0;
     text-align: center;
 }
-.try{
+.carousel-item{
+
     height: 70vh;
+}
+.try{
+    height: fit-content;
 }
 @media (max-width:750px) {
     .hero-section{
         height: 50vh;
     }
     .try{
+        height: max-content;
+    }
+    .carousel-item{
         height: max-content;
     }
 }

@@ -61,7 +61,7 @@ export class DisplaybudgetComponent implements OnInit {
     if (this.id == "" || userId == "") {
       console.log("Budget Id is required");
     } else {
-      this.http.get<any>(`http://localhost:4444/viewSingleBudget/${this.id}/${userId}`).subscribe((res) => {
+      this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewSingleBudget/${this.id}/${userId}`).subscribe((res) => {
         console.log(res);
         this.budgetInfo = res.fetchBud;
         this.fetchItemList = res.fetchItems || [];
@@ -114,7 +114,7 @@ export class DisplaybudgetComponent implements OnInit {
   addNewItem(formData: any) {
     console.log(formData);
 
-    this.http.post<any>('http://localhost:4444/itemList', formData).subscribe(
+    this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/itemList', formData).subscribe(
       response => {
         console.log(response);
         this.fetchItemList = response.fetchItems || [];
@@ -137,7 +137,7 @@ export class DisplaybudgetComponent implements OnInit {
     
     console.log(formDated);
 
-    this.http.put<any>(`http://localhost:4444/updateItem/${this.editItemId}`, formDated).subscribe(
+    this.http.put<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/updateItem/${this.editItemId}`, formDated).subscribe(
       response => {
         console.log(formDated);
         
@@ -156,7 +156,7 @@ export class DisplaybudgetComponent implements OnInit {
   togglePurchased(item: any) {
     const updatedItem = { ...item, purchase: !item.purchase };
 
-    this.http.put<UpdateItemResponse>(`http://localhost:4444/updatePurchase/${item._id}`, updatedItem).subscribe(
+    this.http.put<UpdateItemResponse>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/updatePurchase/${item._id}`, updatedItem).subscribe(
       (response) => {
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();
@@ -192,7 +192,7 @@ export class DisplaybudgetComponent implements OnInit {
   }
 
   deleteItem(itemId: string) {
-    this.http.delete<UpdateItemResponse>(`http://localhost:4444/deleteItem/${itemId}`).subscribe(
+    this.http.delete<UpdateItemResponse>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/deleteItem/${itemId}`).subscribe(
       (response) => {
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();

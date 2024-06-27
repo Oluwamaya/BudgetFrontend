@@ -5,6 +5,15 @@
 }
 nav{
     background-color: #e9f6e9 !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 1px 1px 1px 1px gold;
+}
+.cof{
+    color:black !important;
 }
 
 .nav-item a:hover {
@@ -68,3 +77,46 @@ body{
     margin: 0;
     padding: 0;
 }
+.sam{
+    width: 50px;
+    height: 50px;
+}
+
+/* Add this to your styles.css or equivalent CSS file */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif; /* Use a nice font */
+    font-size: 1.5rem; /* Adjust the size as needed */
+    color: #333; /* Change color to your preference */
+    text-decoration: none;
+  }
+  
+  .navbar-brand .logo {
+    height: 60px; /* Adjust the size of the logo */
+    width: 80px; /* Adjust the size of the logo */
+    margin-right: 8px;
+    border-radius: 10px;
+  }
+  
+  .navbar-brand .brand-text {
+    font-weight: bold;
+     color: #28a745;
+  }
+  
+  .navbar-brand:hover .brand-text {
+    color: #007bff; /* Change text color on hover */
+  }
+  
+  .navbar-brand:hover .logo {
+    transform: scale(1.1); /* Slightly increase the logo size on hover */
+    transition: transform 0.2s; /* Smooth transition */
+  }
+  
+  
+  
+  
+  .navbar-light .navbar-brand {
+    color: #333;
+  }
+  

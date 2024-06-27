@@ -47,3 +47,9 @@ body {
   footer .border-dark {
     background-color: #fff;
   }
+
+  .logs{
+    height: 50px;
+    width: 50px ;
+    border-radius: 10px;
+  }
