@@ -67,7 +67,7 @@ body{
         margin-bottom: 50px;
     }
     .try{ 
-        height: max-content;
+        height: 80vh;
         object-fit: cover;
         
     }
