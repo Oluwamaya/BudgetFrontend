@@ -57,20 +57,16 @@ export class DisplaybudgetComponent implements OnInit {
   ngOnInit() {
     this.id = this.actRoute.snapshot.params['id'];
     const userId = localStorage.getItem('userBudgetId')!;
-    console.log(userId);
-
     if (this.id == "" || userId == "") {
-      console.log("Budget Id is required");
+      
+      alert("Budget Id is required")
     } else {
       this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewSingleBudget/${this.id}/${userId}`).subscribe((res) => {
-        console.log(res);
+        
         this.budgetInfo = res.fetchBud;
         this.fetchItemList = res.fetchItems || [];
 
         this.itemForm.patchValue({ userId: this.budgetInfo.userId });
-        console.log(this.budgetInfo);
-        console.log(this.fetchItemList);
-
         this.updateItemCounts();
         this.calculateTotals();
       }, (error) => {
@@ -87,20 +83,20 @@ export class DisplaybudgetComponent implements OnInit {
 
   addCart() {
     this.itemForm.markAllAsTouched();
-    console.log(this.itemForm.value);
+  
     if (this.itemForm.valid) {
       const formData = { ...this.itemForm.value, budgetId: this.id };
-      console.log(formData);
+     
       
       const itemTotalPrice = formData.itemPrice * formData.quantity;
-      console.log(itemTotalPrice);
+     
 
       if (this.remainingAmount < itemTotalPrice) {
         alert('Item price exceeds the remaining budget');
         return;
       }
   
-      console.log('Form Data:', formData);
+     
   
       if (this.editMode) {
         this.editItem(formData);
@@ -108,17 +104,18 @@ export class DisplaybudgetComponent implements OnInit {
         this.addNewItem(formData);
       }
     } else {
-      console.log('Form is invalid');
+    
+      alert("Form is invalid")
     }
   }
 
   addNewItem(formData: any) {
     this.isLoading = true
-    console.log(formData);
+  
 
     this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/itemList', formData).subscribe(
       response => {
-        console.log(response);
+       
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();
         this.resetForm();
@@ -127,7 +124,7 @@ export class DisplaybudgetComponent implements OnInit {
       },
       error => {
         this.isLoading = false
-        console.error('Error:', error);
+        
         alert(error.error.message);
       }
     );
@@ -140,13 +137,11 @@ export class DisplaybudgetComponent implements OnInit {
     }
     this.isLoading = true 
     
-    console.log(formDated);
+    
 
     this.http.put<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/updateItem/${this.editItemId}`, formDated).subscribe(
       response => {
-        // console.log(formDated);
-        
-        // console.log(response);
+       
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();
         this.resetForm();
@@ -173,6 +168,7 @@ export class DisplaybudgetComponent implements OnInit {
       },
       (error) => {
         console.error('Error updating item', error);
+        alert("Error updating item")
       }
     );
   }

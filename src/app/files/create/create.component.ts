@@ -69,7 +69,7 @@ export class CreateComponent {
       }
       this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/budget', {value}).subscribe(
         response => {
-          console.log('Response from backend:', response);
+         
           const createdBudget = response.budgetInfo
           this.isLoading = false;
           
@@ -84,14 +84,12 @@ export class CreateComponent {
         }
       );
     } else {
-      console.log('Form is invalid');
+     
+      alert("Form is invalid")
     }
   }
   
 
-  onViewCategory() {
-    // Handle view category action
-    console.log('View Category');
-  }
+
 
 }

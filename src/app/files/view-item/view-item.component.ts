@@ -18,18 +18,16 @@ export class ViewItemComponent {
   public itemView : any  = {}
   constructor(private actRoute: ActivatedRoute ,private http : HttpClient ){}
 
-  ngOnInit(){
-    console.log(this.actRoute.snapshot);
-    
+  ngOnInit(){ 
     this.itemId = this.actRoute.snapshot.params['id']
-    console.log(this.itemId);
+   
     this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewItem/${this.itemId}`).subscribe((res)=>{
-      console.log(res);
+      
       this.itemView = res.fetchInfo
       
     },(error)=>{
       console.log(error);
-      
+      alert("Internal server error ")
     })
     
     

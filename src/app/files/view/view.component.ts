@@ -16,15 +16,15 @@ export class ViewComponent {constructor(private http : HttpClient , private date
   public getAllBudget : any = localStorage.getItem("userBudgetId")! || null  
   public gab : any [] = []
   ngOnInit(){
-    console.log(this.getAllBudget);
+   
     if (this.getAllBudget != null) {
       const id = this.getAllBudget
-      console.log();
+     
       
       this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/ViewBudget/${id}`).subscribe((res)=>{
-        console.log(res);
+        
         this.gab = res.allBudgets
-        console.log(this.gab);
+        
         
         
       },(error)=>{
@@ -37,21 +37,16 @@ export class ViewComponent {constructor(private http : HttpClient , private date
 
   }
   viewSingleBudget(id : any ){
-   console.log(id);
-   
   this.router.navigate([`view/display/${id}`])
    
   }
   formatDate(date: string): string {
     return this.datePipe.transform(date, 'dd MMMM yyyy') || '';
   }
-  deleteBudget(id: string) {
-    console.log(id);
-    
+  deleteBudget(id: string) {  
     if (confirm('Are you sure you want to delete this budget?')) {
       this.http.delete<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/deleteBudget/${id}`).subscribe(
         response => {
-          console.log('Budget deleted successfully:', response);
           this.gab = response.remainBudget;
           alert(response.message)
         },
