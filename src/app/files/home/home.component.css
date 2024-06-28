@@ -63,10 +63,11 @@ body{
 @media (max-width:750px) {
     .hero-section{
         height: 50vh;
+        padding-top: 100px;
     }
-    .try{
-        height: max-content;
-    }
+    /* .try{ */
+        /* height: max-content; */
+    /* } */
     .carousel-item{
         height: max-content;
     }

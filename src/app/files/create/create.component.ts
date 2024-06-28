@@ -29,6 +29,8 @@ function futureDateValidator(): ValidatorFn {
 export class CreateComponent {
   public budgetForm : FormGroup
   public userId : any = "" 
+  public isLoading : any = false
+ 
  
   constructor(private fb: FormBuilder, private http: HttpClient, private router : Router) {
     this.budgetForm = this.fb.group({
@@ -57,6 +59,7 @@ export class CreateComponent {
 
   onSubmit() {
     if (this.budgetForm.valid && this.userId !== "") {
+      this.isLoading = true;
       const value = {
           date : this.budgetForm.get('date')?.value ,
           budget : this.budgetForm.get('budget')?.value ,
@@ -68,6 +71,7 @@ export class CreateComponent {
         response => {
           console.log('Response from backend:', response);
           const createdBudget = response.budgetInfo
+          this.isLoading = false;
           
           
           localStorage.setItem("budgetInfo", JSON.stringify(createdBudget))
@@ -75,6 +79,7 @@ export class CreateComponent {
           
         },
         error => {
+          this.isLoading = false;
           console.error('Error:', error);
         }
       );

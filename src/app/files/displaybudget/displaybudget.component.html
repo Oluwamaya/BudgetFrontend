@@ -55,8 +55,20 @@
                 </div>
                 <input type="hidden" formControlName="userId">
                 <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-success">
+                  <button *ngIf="!isLoading" type="submit" class="btn btn-success">
                     {{ editMode ? 'Edit Item' : 'Add to Cart' }}
+                </button>
+                <button *ngIf="isLoading" class="btn btn-success px-5 d-flex justify-content-center">
+                  <div class="dot-spinner ">
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                    <div class="dot-spinner__dot"></div>
+                </div>
                 </button>
                 </div>
               </form>
@@ -92,18 +104,18 @@
                         </button>
                       </td>
                       <td>
-                        <button class="btn btn-outline-dark" (click)="editExistingItem(el)">
+                        <button [disabled]="el.purchase" class="btn btn-outline-dark" (click)="editExistingItem(el)">
                           <span class="material-symbols-outlined">edit</span>
                         </button>
                       </td>
                       <td>
-                        <button class="btn btn-outline-danger" (click)="deleteItem(el._id)">
+                        <button [disabled]="el.purchase" class="btn btn-outline-danger" (click)="deleteItem(el._id)">
                           <span class="material-symbols-outlined">delete_forever</span>
                         </button>
                       </td>
-                      <td>
+                      <td  (change)="togglePurchased(el)" >
                         <div class="text-center">
-                          <input id="check{{ id }}" type="checkbox" [checked]="el.purchase" (change)="togglePurchased(el)" class="mr-2">
+                          <input id="check{{ id }}" type="checkbox" [checked]="el.purchase" class="mr-2">
                           <label for="check{{ id }}" class="mb-0">
                             <p *ngIf="!el.purchase">Not Purchased</p>
                             <p *ngIf="el.purchase">Purchased</p>

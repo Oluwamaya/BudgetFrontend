@@ -35,6 +35,7 @@ export class DisplaybudgetComponent implements OnInit {
   private editItemId: string = '';
   public totalSpent: number = 0;
   public remainingAmount: number = 0;
+  public isLoading : any = false;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -112,6 +113,7 @@ export class DisplaybudgetComponent implements OnInit {
   }
 
   addNewItem(formData: any) {
+    this.isLoading = true
     console.log(formData);
 
     this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/itemList', formData).subscribe(
@@ -121,8 +123,10 @@ export class DisplaybudgetComponent implements OnInit {
         this.updateItemCounts();
         this.resetForm();
         this.calculateTotals();
+        this.isLoading = false
       },
       error => {
+        this.isLoading = false
         console.error('Error:', error);
         alert(error.error.message);
       }
@@ -134,21 +138,25 @@ export class DisplaybudgetComponent implements OnInit {
       console.error('Edit item ID is not set');
       return;
     }
+    this.isLoading = true 
     
     console.log(formDated);
 
     this.http.put<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/updateItem/${this.editItemId}`, formDated).subscribe(
       response => {
-        console.log(formDated);
+        // console.log(formDated);
         
-        console.log(response);
+        // console.log(response);
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();
         this.resetForm();
         this.calculateTotals();
+        this.isLoading = false
       },
       error => {
         console.error('Error:', error);
+        this.isLoading = false
+        alert(error.error.message)
       }
     );
   }
@@ -200,6 +208,7 @@ export class DisplaybudgetComponent implements OnInit {
       },
       (error) => {
         console.error('Error deleting item', error);
+        alert(error.error.message)
       }
     );
   }
