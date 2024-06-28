@@ -55,10 +55,11 @@ body{
 }
 .carousel-item{
 
-    height: 70vh;
+    height: 90vh;
 }
 .try{
     height: fit-content;
+    object-fit: cover;
 }
 @media (max-width:750px) {
     .hero-section{
