@@ -64,7 +64,7 @@ body{
     .hero-section{
         height: 50vh;
         padding-top: 130px;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
     .try{ 
         height: max-content;
@@ -73,6 +73,6 @@ body{
     }
     .carousel-item{
         
-        height: 200px;
+        height: 80vh;
     }
 }
