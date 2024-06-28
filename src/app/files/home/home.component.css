@@ -64,11 +64,14 @@ body{
     .hero-section{
         height: 50vh;
         padding-top: 130px;
+        margin-bottom: 20px;
     }
     .try{ 
-        height: fit-content;
+        height: max-content;
+        
     }
     .carousel-item{
-        height: max-content;
+        
+        height: 70vh;
     }
 }
