@@ -67,12 +67,13 @@ body{
         margin-bottom: 50px;
     }
     .try{ 
-        height: 80vh;
+        height: 60vh;
         object-fit: cover;
+        width: 100%;
         
     }
     .carousel-item{
         
-        height: 80vh;
+        height: 60vh;
     }
 }
