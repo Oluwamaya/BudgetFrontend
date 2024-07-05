@@ -13,7 +13,7 @@
 
         <!-- Budgets List Section -->
         <main *ngIf="gab.length > 0" class="col-10 col-md-8 col-lg-6 shadow-lg p-3 mb-5  rounded ffo">
-            <h6 class="text-center fw-bold text-decoration-underline p-2 ">Budget Overview </h6>
+            <h6 class="text-center fw-bold text-decoration-underline p-2 h20">Budget Overview </h6>
             <p class="text-center">Click on the budget name or date to view your Carts 🛒</p>
             <div *ngFor="let el of gab" class="my-3">
                 <div class="shadow-sm border border-2 border-success-subtle p-3 d-flex justify-content-between align-items-center rounded">
@@ -31,8 +31,8 @@
         </main>
 
         <!-- Budgeting Tips Section -->
-        <section class="mt-5 col-12">
-            <h3 class="text-success">Budgeting Tips</h3>
+        <section class="mt-5 col-12" data-aos="fade-up">
+            <h3 class=" h20">Budgeting Tips</h3>
             <ul class="list-unstyled text-start">
                 <li class="mb-3">
                     <i class="bi bi-lightbulb-fill text-success"></i>
@@ -50,31 +50,31 @@
         </section>
 
         <!-- Why Choose BudgetEase Section -->
-        <section class="mt-5 col-12 col-md-8 col-lg-12">
-            <h3 class="text-success">Why Choose BudgetEase?</h3>
+        <section class="mt-5 col-12 col-md-8 col-lg-12" data-aos="fade-up">
+            <h3 class=" h20">Why Choose BudgetEase?</h3>
             <p>With BudgetEase, you can easily manage your finances, track your expenses, and achieve your financial goals. Our innovative tools and user-friendly interface make budgeting a breeze.</p>
             <div class="row mt-4">
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center" >
                     <i class="bi bi-check-circle-fill fs-1 text-success"></i>
-                    <h5>Easy to Use</h5>
+                    <h5 class="h20 ">Easy to Use</h5>
                     <p>Our intuitive design makes it simple to manage your budget.</p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center" >
                     <i class="bi bi-pie-chart-fill fs-1 text-success"></i>
-                    <h5>Comprehensive Reports</h5>
+                    <h5 class="h20 ">Comprehensive Reports</h5>
                     <p>Get detailed insights into your spending and saving habits.</p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center" >
                     <i class="bi bi-shield-lock-fill fs-1 text-success"></i>
-                    <h5>Secure</h5>
+                    <h5 class="h20 ">Secure</h5>
                     <p>We prioritize your privacy and data security.</p>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action Section -->
-        <section class="my-2 col-12 col-md-8 col-lg-6 text-center">
-            <h3 class="text-success">Ready to Take Control of Your Finances?</h3>
+        <section class="my-2 col-12 col-md-8 col-lg-6 text-center" data-aos="fade-up">
+            <h3 class=" h20">Ready to Take Control of Your Finances?</h3>
             <p>Start using BudgetEase today and take the first step towards financial freedom.</p>
             <a class="btn btn-success btn-lg" routerLink="/create" role="button">Create New Budget</a>
         </section>

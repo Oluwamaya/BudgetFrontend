@@ -5,6 +5,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-view-item',
@@ -19,6 +20,8 @@ export class ViewItemComponent {
   constructor(private actRoute: ActivatedRoute ,private http : HttpClient ){}
 
   ngOnInit(){ 
+    window.scrollTo(0, 0);
+    Aos
     this.itemId = this.actRoute.snapshot.params['id']
    
     this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewItem/${this.itemId}`).subscribe((res)=>{

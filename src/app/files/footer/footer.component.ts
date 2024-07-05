@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import Aos from 'aos';
+
 
 @Component({
   selector: 'app-footer',
@@ -9,5 +11,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  ngOnInit(){
+ Aos
+  
+  }
 
 }

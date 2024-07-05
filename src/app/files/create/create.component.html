@@ -7,17 +7,17 @@
     <title>Create Category</title>
 </head>
 <body class="d-flex justify-content-center align-items-center  vh-100">
-    <main class="col-12 col-md-6 col-lg-12 text-center shadow-lg border border-2 border-success py-4 px-2 mt-1 rounded-3 ">
+    <main class="col-12 col-md-6 col-lg-12 text-center shadow-lg border border-2  py-4 px-2 mt-1 rounded-3 ">
         
         <div class="goal">
-            <h1 class="text-success">Create Category</h1>
+            <h1 class="h20">Create Category</h1>
         </div>
-        <main class="row">
+        <main class="row" data-aos="fade-up">
             <div class="col-12 col-md-6 d-none d-md-block">
                 <img src="assets/writing.webp" class="img-fluid" alt="" srcset="">
             </div>
-            <div class="col-12 col-md-6 border border-success rounded rounded-1 py-2 ">
-                <p class="text-muted my-2">Categorize your item for each day</p>
+            <div class="col-12 col-md-6 border border-success rounded rounded-1 py-2 band " data-aos="fade-up">
+                <p class="text-muted my-2">Categorize your budget for each day</p>
                 <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()" class="">
                     <div  class="form-group mb-3">
               <input type="text" formControlName="name" placeholder="Budget Name" class="form-control">
@@ -56,8 +56,8 @@
    
 </main>
         <hr class="my-5">
-        <section class="mt-5">
-            <h2 class="text-success">Budgeting Tips</h2>
+        <section class="mt-5" data-aos="fade-up">
+            <h2 class="h20 ">Budgeting Tips</h2>
             <ul class="list-unstyled text-start">
                 <li class="mb-3">
                     <i class="bi bi-lightbulb-fill text-success"></i>
@@ -73,45 +73,45 @@
                 </li>
             </ul>
         </section>
-        <section class="mt-5">
+        <section class="mt-5" data-aos="fade-up">
           <div class=" border-bottom border-bottom-5 ">
-            <h2 class="text-success">Why Choose BudgetEase?</h2>
+            <h2 class="h20 ">Why Choose BudgetEase?</h2>
           <p>With BudgetEase, you can easily manage your finances, track your expenses, and achieve your financial goals. Our innovative tools and user-friendly interface make budgeting a breeze.</p>
           </div>
             <div class="row mt-4">
                 <div class="col-md-4">
                     <i class="bi bi-check-circle-fill fs-1 text-success"></i>
-                    <h3>Easy to Use</h3>
+                    <h3 class="h20 ">Easy to Use</h3>
                     <p>Our intuitive design makes it simple to manage your budget.</p>
                 </div>
                 <div class="col-md-4">
                     <i class="bi bi-pie-chart-fill fs-1 text-success"></i>
-                    <h3>Comprehensive Reports</h3>
+                    <h3 class="h20 ">Comprehensive Reports</h3>
                     <p>Get detailed insights into your spending and saving habits.</p>
                 </div>
                 <div class="col-md-4">
                     <i class="bi bi-shield-lock-fill fs-1 text-success"></i>
-                    <h3>Secure</h3>
+                    <h3 class="h20 ">Secure</h3>
                     <p>We prioritize your privacy and data security.</p>
                 </div>
             </div>
         </section>
-        <section class="mt-2 mx-3">
-            <h2 class="text-success">User Testimonials</h2>
-            <div class="row d-flex justify-content-center align-content-center bg-transparent">
-                <div class="col-md-12 border border-2 rounded rounded-2 border-success shadow shadow-lg m-2 bg-light">
+        <section class="mt-2 mx-3"data-aos="fade-up" >
+            <h2 class="h20 ">User Testimonials</h2>
+            <div class="row d-flex justify-content-center align-content-center bg-transparent ">
+                <div class=" bolu m-2 bg-light " data-aos="flip-left">
                     <blockquote class="blockquote">
                         <p class="mb-0">"BudgetEase has transformed the way I manage my finances. It's so easy to use!"</p>
                         <footer class="blockquote-footer my-2">Jane Doe, <cite title="Source Title">Happy User</cite></footer>
                     </blockquote>
                 </div>
-                <div class="col-md-12 border border-2 rounded rounded-2 border-success shadow shadow-lg m-2 bg-light">
+                <div class=" bolu m-2 bg-light"  data-aos="flip-left">
                     <blockquote class="blockquote">
                         <p class="mb-0">"Thanks to BudgetEase, I've finally achieved my financial goals."</p>
                         <footer class="blockquote-footer my-2">John Smith, <cite title="Source Title">Satisfied Customer</cite></footer>
                     </blockquote>
                 </div>
-                <div class="col-md-12 border border-2 rounded rounded-2 border-success shadow shadow-lg m-2 bg-light">
+                <div class=" bolu m-2 bg-light"  data-aos="flip-left">
                     <blockquote class="blockquote">
                         <p class="mb-0">"The best budgeting app I've ever used. Highly recommend!"</p>
                         <footer class="blockquote-footer my-2">Emily Johnson, <cite title="Source Title">Regular User</cite></footer>

@@ -40,3 +40,24 @@ input[type="checkbox"] {
     background-image: url("https://images.unsplash.com/photo-1717851425482-bdb309381a84?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMXx8fGVufDB8fHx8fA%3D%3D");
     font-family: Arial, sans-serif;
   }
+  .bolu{
+    border-radius: 0 30px 0 30px;
+    height: 200px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 2px 2px 10px green;
+    padding: 20px;
+
+}
+.h20{
+    text-shadow: 1px 1px 2px  green;
+    font-size: 30px ;
+    /* background-color: rebeccapurple; */
+}
+@media (max-width:1000px) {
+    .bolu{
+        height: max-content;
+        width: 80%;
+        /* padding: 40px 0; */
+    }
+}

@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import Aos from 'aos';
 
 interface Item {
   _id: string;
@@ -55,6 +56,8 @@ export class DisplaybudgetComponent implements OnInit {
   public id: string = '';
 
   ngOnInit() {
+    Aos.init()
+    window.scrollTo(0, 0);
     this.id = this.actRoute.snapshot.params['id'];
     const userId = localStorage.getItem('userBudgetId')!;
     if (this.id == "" || userId == "") {

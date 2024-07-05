@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-view',
@@ -16,7 +17,8 @@ export class ViewComponent {constructor(private http : HttpClient , private date
   public getAllBudget : any = localStorage.getItem("userBudgetId")! || null  
   public gab : any [] = []
   ngOnInit(){
-   
+    window.scrollTo(0, 0);
+    Aos.init()
     if (this.getAllBudget != null) {
       const id = this.getAllBudget
      

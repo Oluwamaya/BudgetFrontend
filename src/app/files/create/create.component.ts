@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import Aos from 'aos';
 
 function futureDateValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -41,6 +42,8 @@ export class CreateComponent {
   }
 
   ngOnInit(){
+    Aos.init();
+    window.scrollTo(0, 0);
     const storedUserId = localStorage.getItem('userBudgetId');
     if (storedUserId) {
       this.userId = storedUserId;

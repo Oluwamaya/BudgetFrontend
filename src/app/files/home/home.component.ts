@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AfterViewInit, Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import Aos, * as AOS from 'aos';
 
 declare var bootstrap : any;
 
@@ -16,6 +17,10 @@ declare var bootstrap : any;
 })
 export class HomeComponent implements AfterViewInit{
 
+  ngOnInit(){
+    Aos.init();
+    window.scrollTo(0, 0);
+  }
   ngAfterViewInit() {
     var myCarousel = document.querySelector('#carouselExample');
     var carousel = new bootstrap.Carousel(myCarousel, {

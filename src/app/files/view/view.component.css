@@ -19,6 +19,11 @@ body{
     font-family: Arial, sans-serif;
 }
 
+.h20{
+    text-shadow: 2px 2px 2px  green;
+    font-size: 30px ;
+    /* background-color: rebeccapurple; */
+}
 
 h2, h3 {
     font-size: 2rem;

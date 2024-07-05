@@ -1,9 +1,4 @@
-/* .footer{
-    position: fixed !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-} */
+
 a{
     text-decoration: none !important;
 }
@@ -34,6 +29,7 @@ body {
   footer .contact-icons a {
     font-size: 1.5rem;
     margin-right: 15px;
+    /* display: ; */
   }
   footer .contact-icons a:hover {
     color: #155724;
@@ -53,3 +49,26 @@ body {
     width: 50px ;
     border-radius: 10px;
   }
+  .h20{
+    text-shadow: 2px 2px 2px  green;
+    font-size: 30px ;
+    /* background-color: rebeccapurple; */
+}
+.noq{
+  position: fixed !important;
+  right: 10px;
+  bottom: 10px;
+  padding: 20px;
+  
+}
+.gud{
+  /* color: green; */
+  border-radius: 100%;
+  padding:12px;
+  border: 3px solid rgb(46, 223, 46);
+   background-color: green;
+   
+  font-size: 30px;
+  color: white;
+  
+}
