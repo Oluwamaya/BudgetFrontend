@@ -24,7 +24,7 @@ export class ViewItemComponent {
     Aos
     this.itemId = this.actRoute.snapshot.params['id']
    
-    this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewItem/${this.itemId}`).subscribe((res)=>{
+    this.http.get<any>(`https://budget-backend-one.vercel.app/viewItem/${this.itemId}`).subscribe((res)=>{
       
       this.itemView = res.fetchInfo
       

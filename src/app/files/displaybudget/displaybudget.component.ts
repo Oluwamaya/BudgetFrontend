@@ -64,7 +64,7 @@ export class DisplaybudgetComponent implements OnInit {
       
       alert("Budget Id is required")
     } else {
-      this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/viewSingleBudget/${this.id}/${userId}`).subscribe((res) => {
+      this.http.get<any>(`https://budget-backend-six.vercel.app/viewSingleBudget/${this.id}/${userId}`).subscribe((res) => {
         
         this.budgetInfo = res.fetchBud;
         this.fetchItemList = res.fetchItems || [];
@@ -116,7 +116,7 @@ export class DisplaybudgetComponent implements OnInit {
     this.isLoading = true
   
 
-    this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/itemList', formData).subscribe(
+    this.http.post<any>('https://budget-backend-six.vercel.app/itemList', formData).subscribe(
       response => {
        
         this.fetchItemList = response.fetchItems || [];
@@ -142,7 +142,7 @@ export class DisplaybudgetComponent implements OnInit {
     
     
 
-    this.http.put<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/updateItem/${this.editItemId}`, formDated).subscribe(
+    this.http.put<any>(`https://budget-backend-six.vercel.app/updateItem/${this.editItemId}`, formDated).subscribe(
       response => {
        
         this.fetchItemList = response.fetchItems || [];
@@ -162,7 +162,7 @@ export class DisplaybudgetComponent implements OnInit {
   togglePurchased(item: any) {
     const updatedItem = { ...item, purchase: !item.purchase };
 
-    this.http.put<UpdateItemResponse>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/updatePurchase/${item._id}`, updatedItem).subscribe(
+    this.http.put<UpdateItemResponse>(`https://budget-backend-six.vercel.app/updatePurchase/${item._id}`, updatedItem).subscribe(
       (response) => {
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();
@@ -199,7 +199,7 @@ export class DisplaybudgetComponent implements OnInit {
   }
 
   deleteItem(itemId: string) {
-    this.http.delete<UpdateItemResponse>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/deleteItem/${itemId}`).subscribe(
+    this.http.delete<UpdateItemResponse>(`https://budget-backend-six.vercel.app/deleteItem/${itemId}`).subscribe(
       (response) => {
         this.fetchItemList = response.fetchItems || [];
         this.updateItemCounts();

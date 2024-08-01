@@ -23,7 +23,7 @@ export class ViewComponent {constructor(private http : HttpClient , private date
       const id = this.getAllBudget
      
       
-      this.http.get<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/ViewBudget/${id}`).subscribe((res)=>{
+      this.http.get<any>(`https://budget-backend-six.vercel.app/ViewBudget/${id}`).subscribe((res)=>{
         
         this.gab = res.allBudgets
         
@@ -47,7 +47,7 @@ export class ViewComponent {constructor(private http : HttpClient , private date
   }
   deleteBudget(id: string) {  
     if (confirm('Are you sure you want to delete this budget?')) {
-      this.http.delete<any>(`https://budgetbkend-6f9ccab6bac3.herokuapp.com/deleteBudget/${id}`).subscribe(
+      this.http.delete<any>(`https://budget-backend-six.vercel.app/deleteBudget/${id}`).subscribe(
         response => {
           this.gab = response.remainBudget;
           alert(response.message)

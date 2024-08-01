@@ -70,7 +70,7 @@ export class CreateComponent {
           userId : this.userId,
           
       }
-      this.http.post<any>('https://budgetbkend-6f9ccab6bac3.herokuapp.com/budget', {value}).subscribe(
+      this.http.post<any>('https://budget-backend-six.vercel.app/budget', {value}).subscribe(
         response => {
          
           const createdBudget = response.budgetInfo
@@ -84,6 +84,7 @@ export class CreateComponent {
         error => {
           this.isLoading = false;
           console.error('Error:', error);
+          alert(error)
         }
       );
     } else {
